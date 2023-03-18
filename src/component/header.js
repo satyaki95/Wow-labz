@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -9,6 +9,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -24,6 +25,21 @@ const useStyles = makeStyles({
 export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (value === 0) {
+      navigate("/");
+    } else if (value === 1) {
+      navigate("/movies");
+    } else if (value === 2) {
+      navigate("/series");
+    }else if (value === 3){
+      navigate("/favourite")
+    } else if (value === 4) {
+      navigate("/search");
+    }
+  }, [value, navigate]);
 
   return (
     <BottomNavigation
@@ -33,6 +49,7 @@ export default function SimpleBottomNavigation() {
       }}
       showLabels
       className={classes.root}
+      onClick={()=> window.scroll(0, 0)}
     >
       <BottomNavigationAction
         style={{ color: "white" }}
@@ -48,6 +65,11 @@ export default function SimpleBottomNavigation() {
         style={{ color: "white" }}
         label="TV Series"
         icon={<TvIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Favorite"
+        icon={<FavoriteIcon />}
       />
       <BottomNavigationAction
         style={{ color: "white" }}
