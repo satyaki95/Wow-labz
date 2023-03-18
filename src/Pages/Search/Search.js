@@ -39,7 +39,7 @@ const Search = () => {
       );
       setContent(data.results);
       setNumOfPages(data.total_pages);
-      // console.log(data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -48,7 +48,6 @@ const Search = () => {
   useEffect(() => {
     window.scroll(0, 0);
     fetchSearch();
-    // eslint-disable-next-line
   }, [type, page]);
 
   return (
