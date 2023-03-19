@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import SingleContent from '../../component/SingleContent/SingleContent';
+import "./Favourite.css";
 
 const Favourite = () => {
 
-  var items = [];
- 
+  const [items, setItems] = useState([]);
+//  const movieItems = [];
   const favouriteMovies = async () => {
     for (var i = 0; i < localStorage.length; i++) 
     { var id = localStorage.key(i); 
@@ -13,7 +14,7 @@ const Favourite = () => {
     
     var data = await axios.get(
       `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
-    )}
+    )
     var item = {
       id : id,
       poster : data.data.poster_path,
@@ -22,10 +23,18 @@ const Favourite = () => {
       media_type : media_type,
       vote_average : data.data.vote_average,
     }
-    // console.log(item);
-    items.push(item);
+    console.log(item);
+
+    setItems(items=>[...items,item]);
     console.log(items);
+    // setItems([item]);
+    
   }
+  
+  
+  }
+
+  // let movieItems = [items];
 
   useEffect(()=>{
     favouriteMovies();
@@ -34,7 +43,7 @@ const Favourite = () => {
   return (
     <div>
         <span className='pageTitle'>Favorite</span>
-        <div>
+        <div className='favourite'>
         {
           items.map((c) => (
             <SingleContent

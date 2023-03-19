@@ -15,7 +15,8 @@ const SingleContent = ({
   }) => {
     return (
       <ContentModal media_type={media_type} id={id}>
-        <Badge
+        <Badge 
+        overlap="rectangular"
           badgeContent={vote_average}
           color={vote_average > 6 ? "primary" : "secondary"}
         />
