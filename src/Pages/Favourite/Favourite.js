@@ -42,9 +42,9 @@ const Favourite = () => {
               key={c.id}
               id={c.id}
               poster={c.poster}
-              title={c.title || c.name}
-              date={c.date || c.release_date}
-              media_type="movie"
+              title={c.title }
+              date={c.date }
+              media_type={c.media_type}
               vote_average={c.vote_average}
             />
           ))}
