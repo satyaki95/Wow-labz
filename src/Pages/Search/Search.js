@@ -31,18 +31,21 @@ const Search = () => {
   });
 
   const fetchSearch = async () => {
-    try {
-      const { data } = await axios.get(
-        `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
-          process.env.REACT_APP_API_KEY
-        }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
-      );
-      setContent(data.results);
-      setNumOfPages(data.total_pages);
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+    if(searchText.trim().length>=3){
+      try {
+        const { data } = await axios.get(
+          `https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${
+            process.env.REACT_APP_API_KEY
+          }&language=en-US&query=${searchText}&page=${page}&include_adult=false`
+        );
+        setContent(data.results);
+        setNumOfPages(data.total_pages);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
     }
+  
   };
 
   useEffect(() => {
@@ -85,7 +88,7 @@ const Search = () => {
         </Tabs>
       </ThemeProvider>
       <div className="trending">
-        {content &&
+        {content.length>0 ?
           content.map((c) => (
             <SingleContent
               key={c.id}
@@ -96,10 +99,11 @@ const Search = () => {
               media_type={type ? "tv" : "movie"}
               vote_average={c.vote_average}
             />
-          ))}
-        {searchText &&
+          ))
+        : type!==0 ? <h2>No series Found</h2> : <h2>No movies found</h2>}
+        {/* {searchText &&
           !content &&
-          (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
+          (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)} */}
       </div>
       {numOfPages > 1 && (
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />

@@ -24,11 +24,15 @@ const Movies = () => {
   }, [page]);
 
   return (
+    //1->10
+    //2, 11->20
+    //3, 21->30
     <div>
       <span className="pageTitle">Discover Movies</span>
       <div className="trending">
         {content &&
-          content.map((c) => (
+          content.map((c,i) => (
+            i< 10 &&
             <SingleContent
               key={c.id}
               id={c.id}

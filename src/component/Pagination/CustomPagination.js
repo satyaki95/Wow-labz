@@ -31,6 +31,7 @@ export default function CustomPagination({ setPage, numOfPages = 10 }) {
           color="primary"
           hideNextButton
           hidePrevButton
+          rowsPerPage={2}
         />
       </ThemeProvider>
     </div>

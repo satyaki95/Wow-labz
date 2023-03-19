@@ -29,7 +29,8 @@ const Series = () => {
       <span className="pageTitle">Discover Series</span>
       <div className="trending">
         {content &&
-          content.map((c) => (
+          content.map((c,i) => (
+            i< 10 &&
             <SingleContent
               key={c.id}
               id={c.id}
