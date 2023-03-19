@@ -6,8 +6,7 @@ const Favourite = () => {
 
   var items = [];
  
-
-  useEffect(async()=>{
+  const favouriteMovies = async () => {
     for (var i = 0; i < localStorage.length; i++) 
     { var id = localStorage.key(i); 
      var media_type = localStorage.getItem(id); 
@@ -23,10 +22,13 @@ const Favourite = () => {
       media_type : media_type,
       vote_average : data.data.vote_average,
     }
-    
-    console.log(item);
+    // console.log(item);
     items.push(item);
     console.log(items);
+  }
+
+  useEffect(()=>{
+    favouriteMovies();
   },[]);
 
   return (
@@ -46,7 +48,6 @@ const Favourite = () => {
             />
           ))}
         </div>
-        {/* <SingleContent  /> */}
     </div>
   )
 }
