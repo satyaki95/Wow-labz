@@ -24,7 +24,7 @@ const Favourite = () => {
       vote_average : data.data.vote_average,
     }
     console.log(item);
-    setItems([item,...items]);
+    setItems(items=>[...items,item]);
     console.log(items);  
   }
   }
@@ -41,9 +41,9 @@ const Favourite = () => {
             <SingleContent
               key={c.id}
               id={c.id}
-              poster={c.poster_path}
+              poster={c.poster}
               title={c.title || c.name}
-              date={c.first_air_date || c.release_date}
+              date={c.date || c.release_date}
               media_type="movie"
               vote_average={c.vote_average}
             />
