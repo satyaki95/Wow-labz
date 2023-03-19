@@ -25,7 +25,7 @@ const Favourite = () => {
     }
     console.log(item);
 
-    setItems(items=>[...items,item]);
+    setItems([item,...items]);
     console.log(items);
     // setItems([item]);
     
