@@ -3,7 +3,7 @@ import React from 'react'
 import { img_300, unavailable } from "../../config/config";
 import "./SingleContent.css";
 import ContentModal from "../ContentModal/ContentModal";
-import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 const SingleContent = ({
     id,
@@ -29,7 +29,7 @@ const SingleContent = ({
           {media_type === "tv" ? "TV Series" : "Movie"}
           <span className="subTitle">{date}</span>
         </span>
-        <FavoriteIcon />
+        
       </ContentModal>
     );
   };

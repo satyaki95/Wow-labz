@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from "axios";
 import SingleContent from '../../component/SingleContent/SingleContent';
 
 const Favourite = () => {
 
-  const [items, setItems] = useState([]);
+  var items = [];
+ 
+
   useEffect(async()=>{
     for (var i = 0; i < localStorage.length; i++) 
     { var id = localStorage.key(i); 
@@ -22,15 +24,16 @@ const Favourite = () => {
       vote_average : data.data.vote_average,
     }
     
-    // console.log(item);
-    setItems(item);
-  },[items]);
+    console.log(item);
+    items.push(item);
+    console.log(items);
+  },[]);
 
   return (
     <div>
         <span className='pageTitle'>Favorite</span>
         <div>
-        { items.length &&
+        {
           items.map((c) => (
             <SingleContent
               key={c.id}
