@@ -24,18 +24,10 @@ const Favourite = () => {
       vote_average : data.data.vote_average,
     }
     console.log(item);
-
     setItems([item,...items]);
-    console.log(items);
-    // setItems([item]);
-    
+    console.log(items);  
   }
-  
-  
   }
-
-  // let movieItems = [items];
-
   useEffect(()=>{
     favouriteMovies();
   },[]);
