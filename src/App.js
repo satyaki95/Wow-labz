@@ -7,8 +7,12 @@ import Series from "./Pages/Series/Series";
 import Search from "./Pages/Search/Search";
 import Favourite from "./Pages/Favourite/Favourite";
 import './App.css';
+import { useEffect } from "react";
 
 function App() {
+  useEffect(()=>{
+    localStorage.clear();
+  },[]);
   return (
     <BrowserRouter>
       <SimpleBottomNavigation />
