@@ -69,30 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### `Section` Tranding
 
-showing tranding movies
-
-### `Section` Movies
-
-showing all movies
-
-### `Section` Series
-
-showing all Series
-
-### `Section` Search
-
-Enter atlist 3 caracters then it works
-2 part movies and series , same things happend for both
-
-### `Card`
-Click a card and open a modal
-
-### `Modal`
-i have use 2 button 
-1 Watch Trailer - redirect to trailer on youtube,
-2 Add Favourite - add on another section Favourite(use local storage)
 
 
 
