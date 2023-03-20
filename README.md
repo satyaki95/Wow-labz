@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-# about project
+# About Project
 
 ## `Section` Tranding
 showing tranding movies
