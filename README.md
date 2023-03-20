@@ -89,5 +89,5 @@ Enter atlist 3 caracters then it works
 Click a card and open a modal
 ## `Modal`
 i have use 2 button 
-1 Watch Trailer - redirect to trailer on youtube,
-2 Add Favourite - add on another section Favourite(use local storage)
+ `Watch Trailer` - redirect to trailer on youtube,
+ `Add Favourite` - add on another section Favourite(use local storage)
